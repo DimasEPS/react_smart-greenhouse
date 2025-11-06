@@ -1,11 +1,7 @@
+# Greenhouse Monitoring Dashboard
 
-  # Greenhouse Monitoring Dashboard
+## Running the code
 
-  This is a code bundle for Greenhouse Monitoring Dashboard. The original project is available at https://www.figma.com/design/x1f8TZ0XW1MtoFSdlsLeUk/Greenhouse-Monitoring-Dashboard.
+Run `npm i` to install the dependencies.
 
-  ## Running the code
-
-  Run `npm i` to install the dependencies.
-
-  Run `npm run dev` to start the development server.
-  
+Run `npm run dev` to start the development server.
