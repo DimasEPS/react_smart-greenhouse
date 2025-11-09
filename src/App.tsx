@@ -5,7 +5,7 @@ import { ActuatorStatus } from "./components/ActuatorStatus";
 import { ControlPanel } from "./components/ControlPanel";
 import { HistoricalChart } from "./components/HistoricalChart";
 import { Toaster } from "./components/ui/sonner";
-import { toast } from "sonner@2.0.3";
+import { toast } from "sonner";
 
 // Mock data untuk simulasi data sensor real-time
 function generateMockSensorData() {
@@ -22,17 +22,17 @@ function generateMockSensorData() {
 function generateHistoricalData() {
   const data = [];
   const now = new Date();
-  
+
   for (let i = 23; i >= 0; i--) {
     const time = new Date(now.getTime() - i * 60 * 60 * 1000);
     data.push({
-      time: `${time.getHours().toString().padStart(2, '0')}:00`,
+      time: `${time.getHours().toString().padStart(2, "0")}:00`,
       suhu: +(28 + Math.random() * 6).toFixed(1),
       kelembabanUdara: +(65 + Math.random() * 20).toFixed(0),
       kelembabanTanah: +(30 + Math.random() * 40).toFixed(0),
     });
   }
-  
+
   return data;
 }
 
@@ -42,7 +42,7 @@ export default function App() {
   const [pumpStatus, setPumpStatus] = useState<"ON" | "OFF">("OFF");
   const [lastUpdate, setLastUpdate] = useState(new Date());
   const [historicalData] = useState(generateHistoricalData());
-  const [isOnline, setIsOnline] = useState(true);
+  const [isOnline] = useState(true);
 
   // Simulasi update data sensor setiap 5 detik
   useEffect(() => {
@@ -87,10 +87,10 @@ export default function App() {
   };
 
   const formatTime = (date: Date) => {
-    return date.toLocaleTimeString('id-ID', { 
-      hour: '2-digit', 
-      minute: '2-digit',
-      timeZone: 'Asia/Jakarta'
+    return date.toLocaleTimeString("id-ID", {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: "Asia/Jakarta",
     });
   };
 
@@ -164,7 +164,7 @@ export default function App() {
         {/* Historical Chart */}
         <HistoricalChart data={historicalData} />
       </div>
-      
+
       <Toaster />
     </div>
   );
